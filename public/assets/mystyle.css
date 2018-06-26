@@ -1,0 +1,18 @@
+body {
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+}
+.myheader{
+    margin-top: 10px;
+}
+.mymain{
+    margin-top: 30px; 
+}
+ .myresult{
+    margin-top: 40px;   
+} 
+.btn-lg {
+    padding: .75rem 1.25rem;
+    font-weight: 700;
+}

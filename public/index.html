@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="FTAapp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Fantasy Tweets Analytics is a web application that user by type in any twitter Id will get statistics on the tweets such as number of words per tweet, and much more.">
+    <meta name="author" content="Kei">
+    <link rel="icon" href="./assets/favicon.ico">
+    <title>Fantasy Tweets Analytics</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link href="./assets/mystyle.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container text-center" ng-controller="FTActrl">
+        <div class="row">
+            <div class="col">
+                <header class="myheader">
+                    <h3>Fantasy Tweets Analytics
+                        <i class="fab fa-twitter" style="color: blue;"></i>
+                    </h3>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-8">
+                <section class="mymain">
+                    <p>Type in any Twitter ID or publicly visible username (@handle)</p>
+                    <input class="form-control form-control-lg" type="text" placeholder="@Twitter" ng-model="twitterId">
+                    <p class="lead">It will analyze Tweets into words and much more at the below:</p>
+                    <p class="lead">
+                        <button type="submit" class="btn btn-lg btn-primary" ng-click="analyzeTwitter()">Analyze</button>
+                    </p>
+                </section>
+            </div>
+            <div class="col"></div>
+        </div>
+    <div class="row">
+            <div class="col"></div>
+            <div class="col-12">
+                <section class="myresult">
+                        <p> Analyzing <strong ng-bind="twitterId"></strong></p>
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                              <thead>
+                                  <tr>
+                                      <th><i class="far fa-id-badge"></i></th>
+                                      <th><i class="far fa-clock"></i></th>
+                                      <th><i class="fab fa-twitter"></i></th>
+                                      <th><i class="far fa-file-word"></i></th>
+                                      <th><i class="fas fa-retweet"></i></th>
+                                      <th><i class="far fa-heart"></i></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr ng-repeat="tweet in tweets">
+                                      <td><a ng-href="{{tweet.url}}" target="_blank">{{tweet.id_str}}</a></td>
+                                      <td>{{tweet.created_at}}</td>
+                                      <td>{{tweet.text}}</td>
+                                      <td>{{tweet.words_count}}</td>
+                                      <td>{{tweet.retweet_count}}</td>
+                                      <td>{{tweet.favorite_count}}</td>
+                                  </tr>
+            
+                              </tbody>
+                              
+                          </table>
+                        </div>
+                </section>
+            </div>
+            <div class="col"></div>
+    </div>
+    
+    </div>
+    <!-- Angular JS 1.7.2 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <!-- Bootstrap 4.1.0 compiled JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script> -->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <!-- Angular controller app-->
+    <script src="./controllers/controller.js"></script>
+</body>
+</html>
